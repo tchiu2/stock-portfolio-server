@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_223424) do
+ActiveRecord::Schema.define(version: 2019_04_05_203937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(version: 2019_04_02_223424) do
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "stock_id", null: false
+    t.integer "user_id", null: false
+    t.integer "quantity", null: false
+    t.float "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "name", default: "", null: false
@@ -27,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_223424) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "cash_balance", default: 5000.0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
