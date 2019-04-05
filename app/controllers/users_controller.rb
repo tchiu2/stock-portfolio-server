@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :portfolio]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def show
-    render json: { payload: "Show" }, status: :success
-  end
-
-  def portfolio
-    render json: { payload: "Portfolio" }, status: :success
+    @user = User.find(params[:id])
+    render json: @user, adapter: :json, status: 200
   end
 end

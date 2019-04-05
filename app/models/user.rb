@@ -13,6 +13,6 @@ class User < ApplicationRecord
     source: :stock
 
   def current_holdings
-    self.stocks.group(:stock_id).sum(:quantity)
+    self.transactions.joins(:stock).group(:symbol).sum(:quantity)
   end
 end
