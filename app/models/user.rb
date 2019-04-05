@@ -12,7 +12,7 @@ class User < ApplicationRecord
     through: :transactions,
     source: :stock
 
-  def current_holdings
+  def positions 
     self.transactions.joins(:stock).group(:symbol).sum(:quantity)
   end
 end
