@@ -13,7 +13,7 @@ class User < ApplicationRecord
     JWTBlacklist.where("exp < ?", Date.today).destroy_all
   end
 
-  validates :cash_balance, presence: true
+  validates :name, :cash_balance, presence: true
 
   has_many :transactions
   has_many :stocks,
