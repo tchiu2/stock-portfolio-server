@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_06_031454) do
+ActiveRecord::Schema.define(version: 2019_04_08_204554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 2019_04_06_031454) do
     t.string "symbol", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "iex_id", null: false
+    t.string "stock_type", null: false
+    t.boolean "enabled", null: false
+    t.index ["iex_id"], name: "index_stocks_on_iex_id", unique: true
     t.index ["symbol"], name: "index_stocks_on_symbol", unique: true
   end
 
