@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users, defaults: { format: 'json' }, only: [:show] do
     get '/portfolio', to: 'users#portfolio'
+    get '/transactions', to: 'transactions#index'
   end
   resources :stocks, defaults: { format: 'json' }, only: [:index]
 

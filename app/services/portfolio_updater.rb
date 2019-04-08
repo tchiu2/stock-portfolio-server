@@ -6,6 +6,8 @@ class PortfolioUpdater
   end
 
   def update
+    return @portfolio if @portfolio.empty?
+
     symbols = @portfolio.keys.join(",")
     response = URI.parse("https://api.iextrading.com/1.0/stock/market/batch?symbols=#{symbols}&types=quote").read
     json = JSON.parse(response)

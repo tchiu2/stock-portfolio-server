@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:show, :portfolio]
+  skip_before_action :authenticate_user!, only: [:show, :portfolio]
 
   def show
     @user = User.find(params[:id])
