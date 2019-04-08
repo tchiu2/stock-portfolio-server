@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 
   def render_resource(resource)
     if resource.errors.empty?
-      render json: resource
+      render json: resource, key_transform: :camel_lower
     else
       validation_error(resource)
     end
