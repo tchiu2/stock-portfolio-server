@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def portfolio
     @user = User.find(params[:user_id])
-    render json: @user.positions
+    portfolio = PortfolioUpdater.new(@user.positions).update
+    render json: portfolio
   end
 end
