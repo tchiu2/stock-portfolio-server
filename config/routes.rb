@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/transactions', to: 'transactions#index'
   end
   resources :stocks, defaults: { format: 'json' }, only: [:index]
+  resources :transactions, defaults: { format: 'json' }, only: [:create]
 
   devise_for :users,
              path: '',
