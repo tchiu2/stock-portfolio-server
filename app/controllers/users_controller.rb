@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :portfolio]
-
   def show
-    @user = User.find(params[:id])
-    render json: @user, adapter: :json, key_transform: :camel_lower, status: 200
+    user = User.find(params[:id])
+    render_resource(user)
   end
 
   def portfolio
-    @user = User.find(params[:user_id])
-    portfolio = PortfolioUpdater.new(@user.positions).update
+    user = User.find(params[:user_id])
+    portfolio = PortfolioBuilder.build(user.positions)
     render json: portfolio
   end
 end
