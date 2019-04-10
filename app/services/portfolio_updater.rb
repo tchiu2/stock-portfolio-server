@@ -17,6 +17,8 @@ class PortfolioUpdater
         name: json[k.to_s]["quote"]["companyName"],
         shares: v,
         value: v * json[k.to_s]["quote"]["latestPrice"],
+        change: json[k.to_s]["quote"]["change"],
+        changePct: json[k.to_s]["quote"]["changePercent"],
       }
     end
 
