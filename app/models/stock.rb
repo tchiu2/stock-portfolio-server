@@ -3,5 +3,5 @@ class Stock < ApplicationRecord
 
   has_many :transactions
 
-  scope :filter, -> (symbol) { where('symbol ILIKE ?', "%#{symbol}%").limit(25) }
+  scope :filter, -> (symbol) { where('symbol ILIKE ?', "#{symbol}%").limit(25).order("LENGTH(symbol) ASC").order(:symbol) }
 end
