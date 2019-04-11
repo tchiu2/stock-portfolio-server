@@ -9,8 +9,10 @@ module PortfolioBuilder
       quote = quotes[k.to_s]["quote"]
 
       acc.merge(k => { 
+        symbol: k,
         name: quote["companyName"],
         shares: v,
+        price: quote["latestPrice"],
         value: v * quote["latestPrice"],
         change: quote["change"],
         changePct: quote["changePercent"],
