@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::API
   before_action :authenticate_user!
 
+  def render_resources(resources)
+    render json: resources, key_transform: :camel_lower, status: 200
+  end
+
   def render_resource(resource)
     if resource.errors.empty?
       render json: resource, key_transform: :camel_lower, status: 200

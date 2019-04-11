@@ -2,7 +2,8 @@ class StocksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    render json: Stock.all, adapter: :json, status: 200
+    stocks = Stock.filter(params[:filter])
+    render_resources(stocks)
   end
   
   private
