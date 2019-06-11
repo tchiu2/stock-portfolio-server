@@ -3,7 +3,7 @@ require 'open-uri'
 module Iex
   module Client
     def self.get(endpoint)
-      JSON.parse(URI.open("https://api.iextrading.com/1.0/#{endpoint}").read)
+      JSON.parse(URI.open("https://cloud.iexapis.com/stable/#{endpoint}?token=#{ENV['IEX_TOKEN']}").read)
     end
 
     def self.symbols
