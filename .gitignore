@@ -25,3 +25,4 @@
 /config/master.key
 
 client/node_modules
+/.env
