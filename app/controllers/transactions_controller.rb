@@ -17,6 +17,11 @@ class TransactionsController < ApplicationController
     render_resource(transaction)
   end
 
+  def price
+    price = Iex::Client.price(params['symbol'])
+    render plain: "#{price}"
+  end
+
   private
 
   def transaction_params
