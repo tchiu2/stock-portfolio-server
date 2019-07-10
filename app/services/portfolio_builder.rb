@@ -18,5 +18,6 @@ module PortfolioBuilder
         changePct: quote["changePercent"],
       })
     end
+      .select { |_, v| v[:shares] > 0 }
   end
 end
