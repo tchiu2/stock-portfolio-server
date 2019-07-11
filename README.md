@@ -21,7 +21,7 @@ To run the server locally:
    1. Create a ```.env``` file in the root directory.
    2. Add the following keys:
       1. ```CLIENT_URL``` - points to the frontend client
-      2. ```DEVISE_JWT_SECRET_KEY - can be generated using ```rake secret```
+      2. ```DEVISE_JWT_SECRET_KEY``` - can be generated using ```rake secret```
       3. ```IEX_TOKEN``` - register for an [IEX Cloud](https://iexcloud.io/) account and use the "publishable" key here
 4. Run ```rails db:create``` - skip this step if you've already run this locally before.
 5. Run ```rails db:migrate```.
