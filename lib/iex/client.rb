@@ -17,5 +17,9 @@ module Iex
     def self.price(symbol)
       self.get("/stock/#{symbol}/price?")
     end
+
+    def self.chart(symbol, range)
+      self.get("/stock/#{symbol}/chart/#{range}?chartCloseOnly=true&")
+    end
   end
 end

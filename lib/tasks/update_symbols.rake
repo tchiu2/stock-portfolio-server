@@ -1,5 +1,3 @@
-require 'open-uri'
-
 namespace :db do 
   desc "Updates symbols table with IEX data"
 

@@ -3,6 +3,11 @@ class StocksController < ApplicationController
     stocks = Stock.filter(params[:filter])
     render_resources(stocks)
   end
+
+  def chart
+    chart = Iex::Client.chart(params[:symbol], params[:range])
+    render json: chart
+  end
   
   private
 

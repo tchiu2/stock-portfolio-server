@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :stocks, defaults: { format: 'json' }, only: [:index]
   resources :transactions, defaults: { format: 'json' }, only: [:create]
   get '/price/:symbol', defaults: { format: 'json' }, to: 'transactions#price'
+  get '/chart/:symbol/:range', defaults: { format: 'json' }, to: 'stocks#chart'
 
   devise_for :users,
              path: '',

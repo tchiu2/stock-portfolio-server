@@ -1,5 +1,3 @@
-require 'open-uri'
-
 module TransactionBuilder
   def self.build(transaction, user_id)
     stock = Stock.find_by(symbol: transaction["symbol"])
