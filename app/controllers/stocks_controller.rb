@@ -6,7 +6,8 @@ class StocksController < ApplicationController
 
   def chart
     chart = Iex::Client.chart(params[:symbol], params[:range])
-    render json: chart
+    name = Stock.find_by(symbol: params[:symbol].upcase).name
+    render json: { chart: chart, name: name }
   end
   
   private

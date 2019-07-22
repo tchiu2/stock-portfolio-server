@@ -15,7 +15,7 @@ module Iex
     end
 
     def self.price(symbol)
-      self.get("/stock/#{symbol}/price?")
+      self.get("/stock/#{symbol}/quote/latestPrice?")
     end
 
     def self.chart(symbol, range)
